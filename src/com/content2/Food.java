@@ -1,5 +1,5 @@
 package com.content2;
-    public abstract class Food {
+    public abstract class Food implements Nutritious,Consumable {
         String name = null;
         Double calories = null;
         public Food(String name){
