@@ -6,37 +6,31 @@ import java.util.Comparator;
 public class Main {
 
     public static void main(String[] args) {
-        Food[] breakfast= new Food[20];
+        Food[] breakfast = new Food[20];
         int i = 0;
         boolean cal, sort;  // случаи для спец параметров, начинающихся с дефиса
         cal = sort = false;
-        for(String arg: args) {
+        for (String arg : args) {
             String[] parts = arg.split("/");
-            if(parts[0].equals("Cheese")){
+            if (parts[0].equals("Сыр")) {
                 breakfast[i] = new Cheese();
-            }
-            else if(parts[0].equals("Apple")){
+            } else if (parts[0].equals("Яблоко")) {
                 breakfast[i] = new Apple(parts[1]);
-            }
-            else if(parts[0].equals("Eggs")) {
+            } else if (parts[0].equals("Яйцо")) {
                 breakfast[i] = new Eggs(parts[1]);
-            }
-            else { switch (parts[0]) {
-                case "-sort":
-                    sort = true;
-                    break;
-                case "-calories":
-                    cal = true;
-                    break;
-                default:
-                    System.out.println("Cannot find class " + parts[0] + ".\nContinue...\n");
-                    i--;
-            }
-            }
+            } else if (parts[0].startsWith("-") && parts[1].equals("sort")) {
+                sort = true;
 
+            } else if (parts[0].startsWith("-") && parts[1].equals("calories")) {
+                cal = true;
+            } else {
+                System.out.println("Cannot find class " + parts[0] + ".\nContinue...\n");
+            }
             i++;
         }
-        System.out.println("Hello Java!");
+
+
+
 
         if(sort == true){
             Arrays.sort(breakfast, new Comparator<Food>() {
@@ -68,10 +62,18 @@ public class Main {
         }
         int counter = 0;
         Eggs check = new Eggs("one");
+        Eggs check2 = new Eggs("two");
+        Eggs check3 = new Eggs("three");
         for (int k = 0; k < breakfast.length; k++) {
             if (breakfast[k] != null) {
                 if (breakfast[k].equals(check)) {
                     counter++;
+                }
+                if(breakfast[k].equals(check2)){
+                    counter=counter +2;
+                }
+                if(breakfast[k].equals(check3)){
+                    counter=counter +3;
                 }
                 ;
             }
@@ -81,7 +83,7 @@ public class Main {
         for (int j = 0; j < breakfast.length;j++){
 
             if (breakfast[j] != null){
-                if (breakfast[j].equals_type(check)){
+                if (breakfast[j].equals(check)){
                     counter++;
                 }
             }

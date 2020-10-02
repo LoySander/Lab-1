@@ -4,7 +4,7 @@ public class Apple extends Food {
     private String size;
     private Double calories = null;
     public Apple (String size) {
-        super("Apple");
+        super("Яблоко");
         this.size = size;
     }
     public Double calculateCalories()
@@ -42,6 +42,7 @@ public class Apple extends Food {
     else return false;
     }
     public String toString() {
+
         return super.toString() + " размера '"+ size.toUpperCase() + "'";
     }
 
