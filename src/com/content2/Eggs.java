@@ -3,8 +3,9 @@ package com.content2;
 
 public class Eggs extends Food {
         private String number;
+    private Double calories = null;
         public Eggs (String number) {
-            super("Egg");
+            super("Яйцо");
             this.number = number;
         }
 

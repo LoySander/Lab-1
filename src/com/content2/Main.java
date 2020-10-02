@@ -20,9 +20,11 @@ public class Main {
                 breakfast[i] = new Eggs(parts[1]);
             } else if (parts[0].startsWith("-") && parts[1].equals("sort")) {
                 sort = true;
+                i--;
 
             } else if (parts[0].startsWith("-") && parts[1].equals("calories")) {
                 cal = true;
+                i--;
             } else {
                 System.out.println("Cannot find class " + parts[0] + ".\nContinue...\n");
             }
@@ -61,9 +63,10 @@ public class Main {
             else break;
         }
         int counter = 0;
-        Eggs check = new Eggs("one");
-        Eggs check2 = new Eggs("two");
-        Eggs check3 = new Eggs("three");
+
+        Eggs check = new Eggs("одно");
+        Eggs check2 = new Eggs("два");
+        Eggs check3 = new Eggs("три");
         for (int k = 0; k < breakfast.length; k++) {
             if (breakfast[k] != null) {
                 if (breakfast[k].equals(check)) {
@@ -78,7 +81,19 @@ public class Main {
                 ;
             }
         }
-        System.out.println("Количество одинарных яиц " + "'" +check + "'" + ": " + counter);
+        System.out.println("Количество яиц " + ": " + counter);
+        counter = 0;
+        for (int j = 0; j < breakfast.length;j++){
+
+            if (breakfast[j] != null){
+                if (breakfast[j].equals(check2)){
+                    counter++;
+                }
+
+
+            }
+        }
+        System.out.println("Количество продуктов заданного типа " + "'" +check2.getName() + "'" +check2.getNumber()+ ": " + counter);
         counter = 0;
         for (int j = 0; j < breakfast.length;j++){
 
@@ -86,10 +101,25 @@ public class Main {
                 if (breakfast[j].equals(check)){
                     counter++;
                 }
+
+
             }
         }
-        System.out.println("Количество продуктов заданного типа " + "'" +check.getName() + "'" + ": " + counter);
+        System.out.println("Количество продуктов заданного типа " + "'" +check.getName() + "'" +check.getNumber()+ ": " + counter);
+        counter = 0;
+        for (int j = 0; j < breakfast.length;j++){
+
+            if (breakfast[j] != null){
+                if (breakfast[j].equals(check)){
+                    counter++;
+                }
+
+
+            }
+        }
+        System.out.println("Количество продуктов заданного типа " + "'" +check3.getName() + "'" +check3.getNumber()+ ": " + counter);
         int calories = 0;
+
         if (cal == true){
 
             for (int j = 0; j < breakfast.length;j++){
